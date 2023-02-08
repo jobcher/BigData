@@ -1,5 +1,27 @@
 version: '3'
+networks:
+  hdfs_net:
+    driver: bridge
+
+
 services:
-  hdoop:
-    image: hdoop
-    
+  hdoop-node1:
+    image: sjtfreaks/hadoop:v3.3.1
+    container_name: hadoop-node1
+    ports:
+      - 9870:9870
+      - 8088:8088
+    networks:
+      - hdfs_net
+    command: []
+
+  hdoop-node2:
+    image: sjtfreaks/hadoop:v3.3.1
+    networks:
+      - hdfs_net
+
+  hdoop-node3:
+    image: sjtfreaks/hadoop:v3.3.1
+    networks:
+      - hdfs_net
+
