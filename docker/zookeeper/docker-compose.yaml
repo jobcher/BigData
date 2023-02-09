@@ -48,6 +48,10 @@ services:
   zkui:
     image: qnib/zkui
     container_name: zkui
+    depends_on:
+     - zoo1
+     - zoo2
+     - zoo3
     ports:
       - 9090:9090
     environment:
