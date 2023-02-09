@@ -6,6 +6,7 @@ services:
     hostname: zoo1
     ports:
       - 2181:2181
+      - 8080:8080
     # volumes:
     #   - ./zoo1/data:/data
     #   - ./zoo1/datalog:/datalog
