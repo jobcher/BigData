@@ -1,7 +1,6 @@
 version: '3'
 networks:
   bigdata:
-    driver: default
     ipam:
       config:
         - subnet: 172.25.0.0/16
