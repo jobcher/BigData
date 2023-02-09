@@ -55,5 +55,6 @@ services:
     ports:
       - 9090:9090
     environment:
+      TZ: Asia/Shanghai
       ZKUI_ZK_SERVER: zoo1:2181 zoo2:2181 zoo3:2181
     restart: always
