@@ -1,27 +1,39 @@
 version: '3'
 networks:
   hdfs_net:
-    driver: bridge
 
+volumes:
+  hdfs_master:
+  hdfs_node1:
+  hdfs_node2:
 
 services:
-  hdoop-node1:
-    image: sjtfreaks/hadoop:v3.3.1
-    container_name: hadoop-node1
+  hdoop-master:
+    image: sjtfreaks/hadoop-base:main
+    container_name: hadoop-master
     ports:
       - 9870:9870
       - 8088:8088
+      - 50070:50070
     networks:
       - hdfs_net
-    command: []
+    volumes:
+      - hdfs_master:/home/hadoop/tmp
+
+  hdoop-node1:
+    image: sjtfreaks/hadoop:v3.3.1
+    container_name: hadoop-node1
+    networks:
+      - hdfs_net
+    volumes:
+      - hdfs_node1:/home/hadoop/tmp
+
 
   hdoop-node2:
     image: sjtfreaks/hadoop:v3.3.1
+    container_name: hadoop-node2
     networks:
       - hdfs_net
-
-  hdoop-node3:
-    image: sjtfreaks/hadoop:v3.3.1
-    networks:
-      - hdfs_net
+    volumes:
+      - hdfs_node2:/home/hadoop/tmp
 
