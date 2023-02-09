@@ -21,7 +21,7 @@ services:
       - hdfs_master:/home/hadoop/tmp
 
   hdoop-node1:
-    image: sjtfreaks/hadoop:v3.3.1
+    image: sjtfreaks/hadoop-base:main
     container_name: hadoop-node1
     networks:
       - hdfs_net
@@ -30,7 +30,7 @@ services:
 
 
   hdoop-node2:
-    image: sjtfreaks/hadoop:v3.3.1
+    image: sjtfreaks/hadoop-base:main
     container_name: hadoop-node2
     networks:
       - hdfs_net
