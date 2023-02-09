@@ -3,21 +3,22 @@ services:
   zoo1:
     image: zookeeper:3.8.1
     container_name: zoo1
+    hostname: zoo1
     ports:
       - 2181:2181
-      - 8080:8080
     # volumes:
     #   - ./zoo1/data:/data
     #   - ./zoo1/datalog:/datalog
     environment:
       TZ: Asia/Shanghai
       ZOO_MY_ID: 1
-      ZOO_SERVERS: server.1=zoo1:2888:3888 server.2=zoo2:2888:3888 server.3=zoo3:2888:3888
+      ZOO_SERVERS: server.1=zoo1:2888:3888;2181 server.2=zoo2:2888:3888;2181 server.3=zoo3:2888:3888;2181
     restart: always
   
   zoo2:
     image: zookeeper:3.8.1
     container_name: zoo2
+    hostname: zoo2
     ports:
       - 2182:2181
     # volumes:
@@ -26,12 +27,13 @@ services:
     environment:
       TZ: Asia/Shanghai
       ZOO_MY_ID: 2
-      ZOO_SERVERS: server.1=zoo1:2888:3888 server.2=zoo2:2888:3888 server.3=zoo3:2888:3888
+      ZOO_SERVERS: server.1=zoo1:2888:3888;2181 server.2=zoo2:2888:3888;2181 server.3=zoo3:2888:3888;2181
     restart: always
   
   zoo3:
     image: zookeeper:3.8.1
     container_name: zoo3
+    hostname: zoo3
     ports:
       - 2183:2181
     # volumes:
@@ -40,5 +42,5 @@ services:
     environment:
       TZ: Asia/Shanghai
       ZOO_MY_ID: 3
-      ZOO_SERVERS: server.1=zoo1:2888:3888 server.2=zoo2:2888:3888 server.3=zoo3:2888:3888
+      ZOO_SERVERS: server.1=zoo1:2888:3888;2181 server.2=zoo2:2888:3888;2181 server.3=zoo3:2888:3888;2181
     restart: always
