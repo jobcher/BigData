@@ -1,9 +1,8 @@
 version: '3'
 networks:
   bigdata:
-    driver: bridge
+    driver: default
     ipam:
-      driver: default
       config:
         - subnet: 172.25.0.0/16
           gateway: 172.25.0.1
