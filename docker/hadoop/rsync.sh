@@ -20,7 +20,7 @@ echo pdir=$pdir
 user=`whoami`
 
 #5 循环
-for host in hadoop101 hadoop102 hadoop103
+for host in hadoop-master hadoop-node1 hadoop-node2
 do
         echo ------------------- $host --------------
         rsync -rvl $pdir/$fname $user@$host:$pdir
