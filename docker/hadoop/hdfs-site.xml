@@ -1,0 +1,18 @@
+<configuration>
+        <property>
+                <name>dfs.namenode.secondary.http-address</name>
+                <value>hadoop-node1:50090</value>
+        </property>
+        <property>
+                <name>dfs.replication</name>
+                <value>3</value>
+        </property>
+        <property>
+                <name>dfs.namenode.name.dir</name>
+                <value>file:/home/hadoop/tmp/dfs/nn</value>
+        </property>
+        <property>
+                <name>dfs.datanode.data.dir</name>
+                <value>file:/home/hadoop/tmp/dfs/dn</value>
+        </property>
+</configuration>
